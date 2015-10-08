@@ -1,6 +1,9 @@
 /**
  * Find out whether a list is a palindrome.
  */
+
+package scala.math
+
 object P06_Palindroma {
 
   def main(args: Array[String]) {
@@ -14,22 +17,19 @@ object P06_Palindroma {
   def isPalindroma[A](l:List[A]):Boolean = {
 
     val aux = l.reverse
-    val len = l.length / 2
+    val len = ceil(l.length / 2.0)
+    println(len)
+    //aux == l    simple solutions but not efficient
 
-    aux == l
+    def auxpal(l1:List[A],l2:List[A],len:Double):Boolean = (l1,l2,len) match {
 
-    /*  without using
-
-    def auxpal(l1:List[A],l2:List[A]):Boolean = (l1,l2) match {
-
-      case (Nil, Nil) => true
-      case (_,Nil) => false
-      case (Nil,_) => false
-      case (x :: xs, y :: ys) => if(x == y) auxpal(xs,ys) else false
+      case (_, _, 0) => true
+      case (_,Nil,_) => false
+      case (Nil,_,_) => false
+      case (x :: xs, y :: ys, len) => if(x == y)auxpal(xs,ys,len -1) else false
     }
 
-    auxpal(l,aux)
-    */
+    auxpal(l,aux,len)
   }
 
 }

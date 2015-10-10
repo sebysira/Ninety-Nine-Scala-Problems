@@ -1,5 +1,5 @@
 /**
- * Created by seby on 10/10/15.
+ *  Run-length encoding of a list (direct solution).
  */
 object P13_Run_Length {
 

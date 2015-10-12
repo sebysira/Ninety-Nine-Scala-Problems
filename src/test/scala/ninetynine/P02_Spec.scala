@@ -4,6 +4,7 @@ import ninetynine.lists._
 /**
  * Created by seby on 12/10/15.
  */
+
 class P02_Spec extends FlatSpec with Matchers{
   "P02_Last" should "Find the last but one element of a list" in {
     P02_Penultimate.penultimate(List(1,2,3)) should be (2)
